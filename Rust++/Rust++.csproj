@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9455F0FF-5841-430C-8AA2-09F8000D5B0B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Rust</RootNamespace>
+    <AssemblyName>Rust++</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ReleaseVersion>1.0</ReleaseVersion>
+    <SynchReleaseVersion>False</SynchReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>False</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <NoStdLib>True</NoStdLib>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <NoStdLib>True</NoStdLib>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Info.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="rustpp.cs" />
+    <Compile Include="API.cs" />
+    <Compile Include="chat.cs" />
+    <Compile Include="TimedEvents.cs" />
+    <Compile Include="IniParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>References\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>References\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>References\Assembly-UnityScript.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-UnityScript-firstpass">
+      <HintPath>References\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="Boo.Lang">
+      <HintPath>References\Boo.Lang.dll</HintPath>
+    </Reference>
+    <Reference Include="dfScriptLite">
+      <HintPath>References\dfScriptLite.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyRoads3D">
+      <HintPath>References\EasyRoads3D.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Actor">
+      <HintPath>References\Facepunch.Actor.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Cursor">
+      <HintPath>References\Facepunch.Cursor.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Geometry">
+      <HintPath>References\Facepunch.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.HitBox">
+      <HintPath>References\Facepunch.HitBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.ID">
+      <HintPath>References\Facepunch.ID.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.MeshBatch">
+      <HintPath>References\Facepunch.MeshBatch.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Movement">
+      <HintPath>References\Facepunch.Movement.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Prefetch">
+      <HintPath>References\Facepunch.Prefetch.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Sky">
+      <HintPath>References\Facepunch.Sky.dll</HintPath>
+    </Reference>
+    <Reference Include="Facepunch.Utility">
+      <HintPath>References\Facepunch.Utility.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers">
+      <HintPath>References\Google.ProtocolBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.ProtocolBuffers.Serialization">
+      <HintPath>References\Google.ProtocolBuffers.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="GroupGate">
+      <HintPath>References\GroupGate.dll</HintPath>
+    </Reference>
+    <Reference Include="LeatherLoader">
+      <HintPath>References\LeatherLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJSON">
+      <HintPath>References\LitJSON.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Posix">
+      <HintPath>References\Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>References\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>References\mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <HintPath>References\System.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>References\System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>References\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>References\System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security">
+      <HintPath>References\System.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>References\System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="uLink">
+      <HintPath>References\uLink.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>References\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>References\UnityScript.Lang.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
