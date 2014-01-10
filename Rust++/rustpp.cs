@@ -30,13 +30,14 @@ using System.Collections;
 			API.sayUser(arg.argUser.networkPlayer, "This feature has been disabled on this server");
 			return;
 		}
-		if (chatargs.Length > 1) {
+
+		
 			string name = "";
-			for(int i=0; i < chatargs.Length - 1; i++) {
-				name += chatargs[i + 1].Replace("\"", "") + " ";
+			for(int i=0; i < chatargs.Length; i++) {
+				name+=chatargs[i] + " ";
 			}
 			name = name.Trim();
-			
+		if (chatargs != null || name == "") {
 			if(name != null) {
 				foreach (PlayerClient playerClient in PlayerClient.All) {
 					ulong targetID = playerClient.userID;
@@ -75,12 +76,13 @@ using System.Collections;
 			API.sayUser(arg.argUser.networkPlayer, "This feature has been disabled on this server");
 			return;
 		}
-		if (chatargs.Length > 1) {
+
 			string name = "";
-			for(int i=0; i < chatargs.Length - 1; i++) {
-				name += chatargs[i + 1].Replace("\"", "") + " ";
+			for(int i=0; i < chatargs.Length; i++) {
+				name+=chatargs[i] + " ";
 			}
 			name = name.Trim();
+		if (chatargs != null || name == "") {
 			if(name != null) {
 				foreach (PlayerClient playerClient in PlayerClient.All) {
 					ulong targetID = playerClient.userID;
@@ -236,9 +238,20 @@ using System.Collections;
 				API.sayUser(arg.argUser.networkPlayer, "This feature has been disabled on this server");
 				return;
 			}
-			if (chatargs.Length > 2) {
-				string name = chatargs[1].Replace("\"", "");
-				string message = chatargs[2].Replace("\"", "");
+			string namee = "";
+			
+			for(int i=0; i < chatargs.Length; i++) {
+				namee+=chatargs[i] + " ";
+			}
+			namee = namee.Trim();
+			string[] split = String.SplitQuotesStrings (namee);
+			if (split.Length == 2) {
+				string name = split[0].Replace("\"", "");
+				string msg = "";
+				for(int i=1; i < chatargs.Length; i++) {
+					msg+=chatargs[i] + " ";
+				}
+				string message = msg.Replace("\"", "");
 				if(name != null && message != null) {
 					foreach (PlayerClient playerClient in PlayerClient.All) {
 						if(playerClient.netUser.displayName.ToLower() == name.ToLower()) {
@@ -292,27 +305,27 @@ using System.Collections;
 
 
 	public static void handleCommand(ref ConsoleSystem.Arg arg) {
-
+		uLink.NetworkPlayer player = arg.argUser.networkPlayer;
 		string name = arg.argUser.user.Displayname;
 		string command = arg.GetString(0, "text").Trim();
-		uLink.NetworkPlayer player = arg.argUser.networkPlayer;
-		Debug.Log((object) ("[HANDLE COMMAND:] " + name + " " + command));
+		string full = command;
 		string[] tmp = command.Split (' ');
 		command = tmp [0].Trim ();
-		for (int i=3; i < tmp.Length; i++)
-			tmp [2] += " " + tmp [i];
+		string[] args = new string[tmp.Length - 1];
+
+
 		switch (command) {
 
 			case "/share": 
-				share (ref arg, ref tmp);
+				share (ref arg, ref args);
 				break;
 
 			case "/unshare": 
-				unshare (ref arg, ref tmp);
+				unshare (ref arg, ref args);
 				break;
 
 			case "/pm": 
-				pm (ref arg, ref tmp);
+				pm (ref arg, ref args);
 				break;
 
 			case "/ping": 
