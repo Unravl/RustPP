@@ -14,7 +14,7 @@ using System;
 			ConsoleNetworker.Broadcast("chat.add " + str1 + " " + str2);
 		}
 
-		//string str1 = Facepunch.Utility.String.QuoteSafe(rustpp.config.GetSetting("Settings", "system_message_name"));
+		//string str1 = Facepunch.Utility.String.QuoteSafe(rustpp.config.GetSetting("Settings", "system_message_nameTEST"));
 	
 
 		public static void sayUser(uLink.NetworkPlayer player, string arg) {
